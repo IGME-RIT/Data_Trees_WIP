@@ -41,7 +41,7 @@ void grid()
 
 		float x = randposition()*0.01f;
 		float y = randposition()*0.01f;
-		bodies[j]->Velocity(glm::vec3(x, y, 0));
+		bodies[j]->Velocity(glm::vec3(0, 0, 0));
 
 
 

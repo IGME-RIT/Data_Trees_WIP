@@ -39,7 +39,7 @@ https://www.geeksforgeeks.org/k-dimensional-tree/
 #include "Collisions.h"
 #include "all_Fixed_Data.h"
 #include "Rec_lines.h"
-#include "kNN.h"
+
 #include "Data_Tree_Maker.h"
 
 
@@ -178,7 +178,7 @@ void main()
 	mesh = setupModel(20, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f), 0.02f);
 
 	//Sets up bodies in the scene
-	drawRect();
+
 	setup();
 	grid();
 	coords_tree();
@@ -192,7 +192,7 @@ void main()
 	tree = new KD_tree(Points_Tree);
 	tree->printInfo();
 	tree->printTree();
-
+	
 	//making Quadtree
 	std::vector<std::shared_ptr<QT_data_point>> QT_pointlist;
 	quadtree_maker qt(QT_Data_Box{ -1.5f, -1.5f, 1.5f, 1.5f });
@@ -205,11 +205,6 @@ void main()
 		qt.place(p.get());
 	}
 	
-	
-
-
-
-
 
 
 
@@ -226,7 +221,8 @@ void main()
 		
 		// Call to checkTime() which will determine how to go about updating via a set physics timestep as well as calculating FPS.
 		update();
-		
+
+		drawKDTree(*(tree->get_Root()));
 		// Call the render function(s).
 		renderScene();
 		renderLines();
